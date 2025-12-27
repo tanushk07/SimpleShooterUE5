@@ -2,7 +2,7 @@
 
 #include "SimpleShooterPlayerController.h"
 #include "TimerManager.h"
-
+#include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
 void ASimpleShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bool bIsWinner)
 {
@@ -29,14 +29,21 @@ void ASimpleShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bo
     }
     HUDWidget->RemoveFromViewport();
 
-    GetWorldTimerManager().SetTimer(timerhandle, this, &APlayerController::RestartLevel, TimerDelay);
+    GetWorldTimerManager().SetTimer(timerhandle, this, &ASimpleShooterPlayerController::RestartGame, TimerDelay);
 }
 
 void ASimpleShooterPlayerController::BeginPlay()
 {
     Super::BeginPlay();
 
-    HUDWidget= CreateWidget(this,HUD);
-    if(HUDWidget != nullptr) HUDWidget->AddToViewport();
-
+	HUDWidget = CreateWidget(this, HUD);
+    if (HUDWidget != nullptr) {
+        HUDWidget->AddToViewport();
+    }
 }
+
+void ASimpleShooterPlayerController::RestartGame()
+{
+    UGameplayStatics::OpenLevel(this, FName("MainMenu"));
+}
+

@@ -33,7 +33,9 @@ public:
 
 	class UUserWidget* HUDWidget;
 
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void RestartGame();
 };

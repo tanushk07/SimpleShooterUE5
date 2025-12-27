@@ -1,16 +1,25 @@
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-.vscode
-.vs
+# Unreal generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# IDEs
+.vs/
+.vscode/
 *.VC.db
 *.opensdf
 *.opendb
 *.sdf
-*.sln
 *.suo
+
+# Logs
+*.log
+
+# Optional: regenerate locally
+# *.sln
+
+# macOS / Xcode
 *.xcodeproj
-Content
-Build
 *.xcworkspace
+.DS_Store
