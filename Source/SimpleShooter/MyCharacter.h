@@ -19,8 +19,6 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	bool isDead() const;
-	UPROPERTY(BlueprintReadOnly)
-	bool state=false;
 
 	UFUNCTION(BlueprintPure)
 	float GetHealthPercentage() const;
@@ -37,7 +35,6 @@ private:
 	void LookRightRate(float value);
 	void StopShooting();
 	void StartShooting();
-	void Crouch();
 	
 	
 

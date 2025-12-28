@@ -27,7 +27,7 @@ void ASimpleShooterPlayerController::GameHasEnded(class AActor *EndGameFocus, bo
             LostScreenWidget->AddToViewport();
         }
     }
-    HUDWidget->RemoveFromViewport();
+    HUDWidget->RemoveFromParent();
 
     GetWorldTimerManager().SetTimer(timerhandle, this, &ASimpleShooterPlayerController::RestartGame, TimerDelay);
 }

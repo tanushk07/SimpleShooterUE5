@@ -50,7 +50,6 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("LookUpRate"),this,&AMyCharacter::LookUpRate);
 	PlayerInputComponent->BindAction(TEXT("Shoot"), EInputEvent::IE_Pressed, this, &AMyCharacter::StartShooting);
 	PlayerInputComponent->BindAction(TEXT("Shoot"), EInputEvent::IE_Released, this, &AMyCharacter::StopShooting);
-	PlayerInputComponent->BindAction(TEXT("Crouch"),EInputEvent::IE_Pressed,this,&AMyCharacter::Crouch);
 
 
 	// or we can directly bind the addmovementinput and addcontrollerpitchinput
@@ -119,13 +118,6 @@ void AMyCharacter::StartShooting()
         GetWorld()->GetTimerManager().SetTimer(ShootingTimer, this, &AMyCharacter::shoot, FireRate, true);
     }
 }
-
-void AMyCharacter::Crouch()
-{
-	if(state==false) state=true;
-	else state=false;
-}
-
 void AMyCharacter::StopShooting()
 {
     bIsShooting = false;
